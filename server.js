@@ -18,6 +18,6 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((result) => app.listen(process.env.PORT))
+  .then((result) => app.listen(process.env.PORT || 8080))
   .catch((err) => console.log(err));
 app.use(authRoutes);
