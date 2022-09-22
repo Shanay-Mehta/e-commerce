@@ -1,0 +1,18 @@
+const express = require("express");
+const { requireAuth } = require("../middleware/authMiddleware");
+const router = express.Router();
+const authController = require("../controllers/authController");
+router.get("/", authController.homePage);
+router.get("/product/:id", authController.prodDet);
+router.get("/product/category/:category", authController.prodCategory);
+router.get("/signup", authController.signup_get);
+router.post("/signup", authController.signup_post);
+router.get("/login", authController.login_get);
+router.post("/login", authController.login_post);
+router.get("/logout", authController.logout_get);
+router.get("/cart", requireAuth, authController.userCart);
+router.get("/cart/form/:id", requireAuth, authController.cartForm);
+router.get("/checkout", authController.checkout);
+router.post("/cart", authController.add_to_cart);
+router.post("/", authController.remove_from_cart);
+module.exports = router;
