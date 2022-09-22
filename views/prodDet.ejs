@@ -38,5 +38,10 @@
       details.innerText = data.description;
       price.innerText = "$" + data.price;
       rating.innerText = "Rating: " + data.rating.rate;
+      const footer = document.createElement("footer");
+      const footerContent = document.createTextNode("Made with 💙 by Shanay");
+      footer.style = "margin-top:30px;";
+      footer.appendChild(footerContent);
+      document.body.appendChild(footer);
     });
 </script>

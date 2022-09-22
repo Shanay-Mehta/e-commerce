@@ -4,7 +4,6 @@
   fetch(`https://fakestoreapi.com/products/category/${category}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       data.forEach((object) => {
         console.log(object);
         // const productImg = document.querySelector("div.productImg");
@@ -31,5 +30,10 @@
         div.appendChild(link);
         document.body.appendChild(div);
       });
+      const footer = document.createElement("footer");
+      const footerContent = document.createTextNode("Made with 💙 by Shanay");
+      footer.style = "margin-top:30px;";
+      footer.appendChild(footerContent);
+      document.body.appendChild(footer);
     });
 </script>

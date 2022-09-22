@@ -33,8 +33,10 @@
       hidden.value = data.id;
       hiddenImg.value = data.image;
       console.log(data.id);
-      // name.name = data.id;
-      // price.name = data.id;
-      // quantity.name = quantity.value;
+      const footer = document.createElement("footer");
+      const footerContent = document.createTextNode("Made with 💙 by Shanay");
+      footer.style = "margin-top:30px;";
+      footer.appendChild(footerContent);
+      document.body.appendChild(footer);
     });
 </script>
