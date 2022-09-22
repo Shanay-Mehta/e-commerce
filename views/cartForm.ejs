@@ -1,0 +1,40 @@
+<%-include("./partials/header.ejs")-%>
+<img style="width: 200px; height: 260px; margin-left: 550px" />
+<form action="/cart" method="POST">
+  <input type="hidden" name="id" class="hidden" />
+  <input type="hidden" name="image" class="hiddenImg" />
+  <label for="name">Name:</label>
+  <input type="text" class="name" name="title" readonly />
+  <label for="price">Price:</label>
+  <input type="text" class="price" name="price" readonly />
+  <label for="quantity">Quantity:</label>
+  <input type="number" class="quantity" name="quantity" min="1" value="1" />
+  <button>Submit</button>
+</form>
+<script>
+  const id = location.pathname.split("/")[3];
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const img = document.querySelector("img");
+      const name = document.querySelector(".name");
+      const price = document.querySelector(".price");
+      const quantity = document.querySelector(".quantity");
+      const hidden = document.querySelector(".hidden");
+      const hiddenImg = document.querySelector(".hiddenImg");
+      // const button = document.querySelector("button");
+      // button.addEventListener("onClick", (res) => {
+      //   event.preventDefault();
+      // });
+      img.src = data.image;
+      name.value = data.title;
+      price.value = "$" + data.price;
+      hidden.value = data.id;
+      hiddenImg.value = data.image;
+      console.log(data.id);
+      // name.name = data.id;
+      // price.name = data.id;
+      // quantity.name = quantity.value;
+    });
+</script>
