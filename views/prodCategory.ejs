@@ -1,0 +1,35 @@
+<%- include("./partials/header") -%>
+<script>
+  const category = location.pathname.split("/")[3];
+  fetch(`https://fakestoreapi.com/products/category/${category}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      data.forEach((object) => {
+        console.log(object);
+        // const productImg = document.querySelector("div.productImg");
+        // const productInfo = document.querySelector(".productInfo");
+        const image = document.createElement("img");
+        const title = document.createElement("p");
+        const price = document.createElement("p");
+        const link = document.createElement("a");
+        const div = document.createElement("div");
+        const titleContent = document.createTextNode(object.title);
+        const priceContent = document.createTextNode("$" + object.price);
+        div.className = "div";
+        image.src = object.image;
+        image.style = "width: 200px;height:260px; margin:1rem";
+        title.style =
+          "width: 220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+        price.style = "font-weight: bolder;";
+        link.href = `/product/${object.id}`;
+        title.appendChild(titleContent);
+        price.appendChild(priceContent);
+        link.appendChild(image);
+        link.appendChild(title);
+        link.appendChild(price);
+        div.appendChild(link);
+        document.body.appendChild(div);
+      });
+    });
+</script>

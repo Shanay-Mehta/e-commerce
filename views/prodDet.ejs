@@ -1,0 +1,42 @@
+<%- include("./partials/header") -%>
+<div className="prodDetails">
+  <div class="prodTitle">
+    <h1 class="heading"></h1>
+  </div>
+  <div class="prodImg">
+    <img style="width: 260px; height: 300px; margin: 50px 30px" />
+  </div>
+  <div>
+    <p class="prodDesc"></p>
+    <br />
+    <p class="prodPrice"></p>
+    <br />
+    <p class="prodRating" style="font-weight: bolder"></p>
+  </div>
+  <br />
+</div>
+<script>
+  const id = location.pathname.split("/")[2];
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const link = document.createElement("a");
+      const heading = document.querySelector("h1.heading");
+      const image = document.querySelector("img");
+      const details = document.querySelector("p.prodDesc");
+      const rating = document.querySelector("p.prodRating");
+      const price = document.querySelector("p.prodPrice");
+      link.href = `/cart/form/${id}`;
+      link.innerText = "Add to cart";
+      link.style =
+        "margin-left:0px;font-size:45px;font-weight:bolder;color:lawngreen";
+      // link.appendChild(cart);
+      document.body.appendChild(link);
+      heading.innerText = data.title;
+      image.src = data.image;
+      details.innerText = data.description;
+      price.innerText = "$" + data.price;
+      rating.innerText = "Rating: " + data.rating.rate;
+    });
+</script>
