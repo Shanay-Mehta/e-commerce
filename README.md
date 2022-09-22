@@ -1,1 +1,1 @@
-# e-commerce-mern
+# e-commerce website using node, express, mongodb and ejs
