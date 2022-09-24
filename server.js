@@ -2,8 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+
 const { checkUser } = require("./middleware/authMiddleware");
 const app = express();
+app.use(cors());
 app.use(express.static("public"));
 app.use(express.static("images"));
 app.use(express.json());
