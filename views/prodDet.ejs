@@ -17,6 +17,36 @@
 </div>
 <script>
   const id = location.pathname.split("/")[2];
+  if (id == "arduino") {
+    const link = document.createElement("a");
+    const link2 = document.createElement("a");
+    const heading = document.querySelector("h1.heading");
+    const image = document.querySelector("img");
+    const details = document.querySelector("p.prodDesc");
+    const rating = document.querySelector("p.prodRating");
+    const price = document.querySelector("p.prodPrice");
+    const breaker = document.createElement("br");
+    link.href =
+      "https://www.amazon.in/Robotbanao-Atmega328p-Cable-Length-Black/dp/B06XBMB9T1/ref=sr_1_1_sspa?adgrpid=54386966810&ext_vrnc=hi&gclid=Cj0KCQiA4uCcBhDdARIsAH5jyUmi1g280MQsmCkFlxS-GZq9cU3NYHaxsNZaG7uedWbQFLpShv-oJxwaApyKEALw_wcB&hvadid=294099291534&hvdev=c&hvlocphy=9299162&hvnetw=g&hvqmt=b&hvrand=17572016616621481996&hvtargid=kwd-328053565679&hydadcr=9006_1892696&keywords=arduino+uno+r3+compatible+board&qid=1670998613&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1https://www.amazon.in/Robotbanao-Atmega328p-Cable-Length-Black/dp/B06XBMB9T1/ref=sr_1_1_sspa?adgrpid=54386966810&ext_vrnc=hi&gclid=Cj0KCQiA4uCcBhDdARIsAH5jyUmi1g280MQsmCkFlxS-GZq9cU3NYHaxsNZaG7uedWbQFLpShv-oJxwaApyKEALw_wcB&hvadid=294099291534&hvdev=c&hvlocphy=9299162&hvnetw=g&hvqmt=b&hvrand=17572016616621481996&hvtargid=kwd-328053565679&hydadcr=9006_1892696&keywords=arduino+uno+r3+compatible+board&qid=1670998613&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1";
+    link.innerText = "Check Arduino on Amazon";
+    link.style = "margin-left:0px;font-size:30px;font-weight:bolder;color:grey";
+    document.body.appendChild(link);
+    document.body.appendChild(breaker);
+    document.body.appendChild(breaker);
+    document.body.appendChild(breaker);
+    link2.href = "https://www.arduino.cc/";
+    link2.innerText = "Visit Arduino Website";
+    link2.style =
+      "margin-left:0px;font-size:30px;font-weight:bolder;color:grey";
+    document.body.appendChild(link2);
+    heading.innerText = "Arduino Uno Chip";
+    image.src =
+      "https://cdn.sparkfun.com/assets/9/1/e/4/8/515b4656ce395f8a38000000.png";
+    details.innerText =
+      "The Arduino Uno is an open-source microcontroller board based on the Microchip ATmega328P microcontroller and developed by Arduino.cc and initially released in 2010.";
+    price.innerText = "$11.64";
+    rating.innerText = "Rating: 4.2";
+  }
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then((res) => res.json())
     .then((data) => {
