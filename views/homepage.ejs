@@ -1,6 +1,21 @@
 <%- include("./partials/header.ejs")-%>
 <h1>Featured Products!</h1>
-
+<div class="div">
+  <a href="/product/arduino">
+    <img
+      src="https://cdn.sparkfun.com/assets/9/1/e/4/8/515b4656ce395f8a38000000.png"
+      alt="Arduino Uno Chip"
+      style="
+        width: 220px;
+        height: 260px;
+        margin: 1rem;
+        transform: translateY(25.5px);
+      "
+    />
+    <p style="transform: translate(16px, 25.5px)">Arduino Uno Chip</p>
+    <p style="transform: translate(16px, 25.5px)"><strong>$11.64</strong></p>
+  </a>
+</div>
 <script>
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
